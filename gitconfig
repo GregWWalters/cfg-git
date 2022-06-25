@@ -1,0 +1,76 @@
+[core]
+	autocrlf = false
+	eol=lf
+	excludesfile = /Users/greg/.gitignore
+
+[user]
+	name = Greg Walters
+	email = Greg.Walters@parkhub.com
+	signingkey = 74AAE313546F1DEA
+
+[push]
+	default = upstream
+[pull]
+	rebase = rebase
+
+[alias]
+	cb = checkout -b
+	co = checkout
+	nb = new-branch
+	conflict = merge --no-commit --no-ff
+	delete-orig = !find . -type f -name '*.orig' -delete
+	gm = co-primary
+	rs = resync
+	prune=fetch --prune --prune-tags --verbose
+	sb = "!git stash push && git checkout ${1} && git stash pop #"
+
+[commit]
+	template = /Users/greg/.stCommitMsg
+	gpgsign = true
+[url "ssh://git@github.com"]
+	insteadOf = https://github.com
+[advice]
+	detachedHead = false
+[gui]
+	recentrepo = /Users/greg/Repos/PH/live/go-api
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[merge]
+	tool = kdiff3
+	conflictstyle = diff3
+	guitool = kdiff3
+	renamelimit = 14690
+[mergetool]
+	prompt = false
+[difftool "vim"]
+	path = /usr/local/bin/vimdiff
+[mergetool "vim"]
+	path = /usr/local/bin/vimdiff
+[difftool "gvim"]
+	path = /usr/local/bin/gvimdiff
+[mergetool "gvim"]
+	path = /usr/local/bin/gvimdiff
+[difftool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[difftool "kdiff3"]
+	path = /usr/local/bin/kdiff3
+[mergetool "kdiff3"]
+	path = /usr/local/bin/kdiff3
+	trustExitCode = true
+[init]
+	defaultBranch = main
+
+[funcs]
+	verbose = off
+	echo = off
+[funcs "refresh"]
+	verbose = off
+	echo = off

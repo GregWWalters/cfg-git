@@ -1,0 +1,39 @@
+# Config Files
+.envrc
+
+# Temporary and Test files
+*.tmp
+*.orig
+*.test
+*.wip
+
+# Log files
+*.log
+
+# OS-Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and Editor files
+.idea/
+*.sw[op]
+
+# Node.JS
+coverage/
+node_modules/
+npm-debug.log
+test/*.log
+.nyc_output
+.node-version
+
+# Go
+*.dll
+*.dylib
+*.exe
+*.exe~
+*.so
