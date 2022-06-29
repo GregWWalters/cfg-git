@@ -5,13 +5,13 @@
 
 [user]
 	name = Greg Walters
-	email = Greg.Walters@parkhub.com
+	email = Greg@GregWWalters.dev
 	signingkey = 74AAE313546F1DEA
 
 [push]
 	default = upstream
 [pull]
-	rebase = rebase
+	rebase = true
 
 [alias]
 	cb = checkout -b
@@ -67,10 +67,15 @@
 	trustExitCode = true
 [init]
 	defaultBranch = main
-
+[diff]
+	submodule = log
 [funcs]
 	verbose = off
 	echo = off
 [funcs "refresh"]
 	verbose = off
 	echo = off
+[status]
+	submodulesummary = 1
+[submodule]
+	recurse = true
