@@ -1,7 +1,6 @@
 [core]
 	autocrlf = false
-	eol=lf
-	excludesfile = /Users/greg/.gitignore
+	eol = lf
 
 [user]
 	name = Greg Walters
@@ -79,3 +78,5 @@
 	submodulesummary = 1
 [submodule]
 	recurse = true
+
+# vim:ft=.gitconfig
