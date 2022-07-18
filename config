@@ -3,8 +3,8 @@
 	eol = lf
 
 [user]
-	name = Greg Walters
-	email = Greg@GregWWalters.dev
+	name       = Greg Walters
+	email      = Greg@GregWWalters.dev
 	signingkey = 74AAE313546F1DEA
 
 [push]
@@ -13,25 +13,21 @@
 	rebase = true
 
 [alias]
-	cb = checkout -b
-	co = checkout
-	nb = new-branch
+	cb       = checkout -b
+	co       = checkout
 	conflict = merge --no-commit --no-ff
-	delete-orig = !find . -type f -name '*.orig' -delete
-	gm = co-primary
-	rs = resync
-	prune=fetch --prune --prune-tags --verbose
-	sb = "!git stash push && git checkout ${1} && git stash pop #"
+	prune    = fetch --prune --prune-tags --verbose
+	nb       = new-branch
+	gm       = co-primary
+	rs       = resync
+	sb       = "!git stash push && git checkout ${1} && git stash pop #"
 
 [commit]
-	template = /Users/greg/.stCommitMsg
 	gpgsign = true
 [url "ssh://git@github.com"]
 	insteadOf = https://github.com
 [advice]
 	detachedHead = false
-[gui]
-	recentrepo = /Users/greg/Repos/PH/live/go-api
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -53,12 +49,6 @@
 	path = /usr/local/bin/gvimdiff
 [mergetool "gvim"]
 	path = /usr/local/bin/gvimdiff
-[difftool "sourcetree"]
-	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = true
 [difftool "kdiff3"]
 	path = /usr/local/bin/kdiff3
 [mergetool "kdiff3"]
