@@ -5,7 +5,6 @@
 [user]
 	name       = Greg Walters
 	email      = Greg@GregWWalters.dev
-	signingkey = 74AAE313546F1DEA
 
 [push]
 	default = upstream
