@@ -1,26 +1,50 @@
 [core]
 	autocrlf = false
 	eol = lf
+	pager = delta
 
 [user]
 	name       = Greg Walters
 	email      = Greg@GregWWalters.dev
+	signingkey = 6C47F50D9732AB63DCADC45435F253719E478B38
 
+[fetch]
+	recurseSubmodules = on-demand
+	prune             = true
+	pruneTags         = false
 [push]
 	default = upstream
 [pull]
 	rebase = true
+[pager]
+	diff     = true
+	; difftool = true
 
 [alias]
 	cb       = checkout -b
 	co       = checkout
+	mt       = mergetool
+	wt       = worktree
+	dft      = difftool
+	staged   = diff --staged
 	conflict = merge --no-commit --no-ff
+	fetch    = fetch --tags
 	prune    = fetch --prune --prune-tags --verbose
 	nb       = new-branch
 	gm       = co-primary
 	rs       = resync
 	sb       = "!git stash push && git checkout ${1} && git stash pop #"
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
+[interactive]
+	diffFilter = delta \
+		--color-only \
+		--features=interactive
+[add.interactive]
+	useBuiltin = false
+[branch]
+	autoSetupRebase = always
 [commit]
 	gpgsign = true
 [url "ssh://git@github.com"]
@@ -33,6 +57,54 @@
 	process = git-lfs filter-process
 	required = true
 
+[color]
+	branch      = auto
+	diff        = auto
+	interactive = auto
+	status      = auto
+
+[diff]
+	submodule = log
+	colorMoved = default
+	tool = vimdiff
+	statGraphWidth=78
+	interHunkContext=8
+
+[difftool "vim"]
+	path = /usr/local/bin/vimdiff
+[difftool "gvim"]
+	path = /usr/local/bin/gvimdiff
+[difftool "kdiff3"]
+	path = /usr/local/bin/kdiff3
+[difftool "difftastic"]
+	cmd = difft \
+		--skip-unchanged \
+		--color=auto \
+		--tab-width=2 \
+		--display=inline \
+		"$LOCAL" "$REMOTE"
+[difftool "difft-sbs"]
+	cmd = difft \
+		--skip-unchanged \
+		--color=auto \
+		--tab-width=2 \
+		--display=side-by-side \
+		"$LOCAL" "$REMOTE"
+[difftool "difft-inl"]
+	cmd = difft \
+		--skip-unchanged \
+		--color=auto \
+		--tab-width=2 \
+		--display=inline \
+		"$LOCAL" "$REMOTE"
+[difftool "difft-both"]
+	cmd = difft \
+		--skip-unchanged \
+		--color=auto \
+		--tab-width=2 \
+		--display=side-by-side-show-both \
+		"$LOCAL" "$REMOTE"
+
 [merge]
 	tool = kdiff3
 	conflictstyle = diff3
@@ -40,32 +112,61 @@
 	renamelimit = 14690
 [mergetool]
 	prompt = false
-[difftool "vim"]
-	path = /usr/local/bin/vimdiff
 [mergetool "vim"]
 	path = /usr/local/bin/vimdiff
-[difftool "gvim"]
-	path = /usr/local/bin/gvimdiff
 [mergetool "gvim"]
 	path = /usr/local/bin/gvimdiff
-[difftool "kdiff3"]
-	path = /usr/local/bin/kdiff3
 [mergetool "kdiff3"]
 	path = /usr/local/bin/kdiff3
 	trustExitCode = true
+
+[rebase]
+	autoSquash=true
+	autoStash=true
+	updateRefs=true
+
+[status]
+	submodulesummary = 1
+[submodule]
+	recurse = true
 [init]
 	defaultBranch = main
-[diff]
-	submodule = log
+	; templateDir = $XDG_CONFIG_HOME/git/templates
+
+; External Tool Opts
+[delta]
+	dark         = true
+	features     = decorations
+	light        = false   # set to true if you're in a terminal w/ a light background
+	navigate     = true # use n and N to move between diff sections
+	side-by-side = false
+	tabs         = 2
+[delta "decorations"]
+	hunk-header-style       = file line-number syntax
+	keep-plus-minus-markers = true
+	line-numbers            = true
+[delta "interactive"]
+	hyperlinks = true
+	keep-plus-minus-markers = false
+[delta "side-by-side"]
+	side-by-side = true
+
+; Custom Command Opts
 [funcs]
 	verbose = off
 	echo = off
 [funcs "refresh"]
 	verbose = off
 	echo = off
-[status]
-	submodulesummary = 1
-[submodule]
-	recurse = true
+
+; Conditional Git Configs
+[includeIf "hasconfig:remote.*.url:github.com/parkhub/**"]
+	path = ParkHub/gitconfig
+[includeIf "hasconfig:remote.*.url:git@github.com:parkhub/**"]
+	path = ParkHub/gitconfig
+[includeIf "gitdir/i:**/PH/**"]
+	path = ParkHub/gitconfig
+[includeIf "gitdir/i:**/ParkHub/**"]
+	path = ParkHub/gitconfig
 
 # vim:ft=.gitconfig
