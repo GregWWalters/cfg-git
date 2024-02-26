@@ -63,6 +63,12 @@
 	interactive = auto
 	status      = auto
 
+[format]
+	pretty = hdes
+
+[pretty]
+	hdes = "format:%C(auto)%h %ad %ae %s"
+
 [diff]
 	submodule = log
 	colorMoved = default
@@ -104,6 +110,16 @@
 		--tab-width=2 \
 		--display=side-by-side-show-both \
 		"$LOCAL" "$REMOTE"
+
+[log]
+	abbrevCommit = true
+	follow = true
+	date = iso
+	decorate = auto
+	mailmap = true
+
+[mailmap]
+	file = ~/.config/git/mailmap
 
 [merge]
 	tool = kdiff3
@@ -161,12 +177,12 @@
 
 ; Conditional Git Configs
 [includeIf "hasconfig:remote.*.url:github.com/parkhub/**"]
-	path = ParkHub/gitconfig
+	path = ~/.config/git/ParkHub/gitconfig
 [includeIf "hasconfig:remote.*.url:git@github.com:parkhub/**"]
-	path = ParkHub/gitconfig
+	path = ~/.config/git/ParkHub/gitconfig
 [includeIf "gitdir/i:**/PH/**"]
-	path = ParkHub/gitconfig
+	path = ~/.config/.config/git/ParkHub/gitconfig
 [includeIf "gitdir/i:**/ParkHub/**"]
-	path = ParkHub/gitconfig
+	path = ~/.config/.config/.config/git/ParkHub/gitconfig
 
 # vim:ft=.gitconfig

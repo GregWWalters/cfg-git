@@ -5,7 +5,7 @@ set tabstop 8
 set findmergefiles 0
 set maxgraphpct 50
 set maxwidth 16
-set cmitmode patch
+set cmitmode tree
 set wrapcomment none
 set autoselect 1
 set autosellen 40
@@ -53,12 +53,12 @@ set linkfgcolor blue
 set circleoutlinecolor black
 set diffbgcolors {"#fff3f3" "#f0fff0"}
 set web_browser open
-set geometry(main) 1680x997+0+25
-set geometry(state) zoomed
-set geometry(topwidth) 1680
+set geometry(main) 1952x1129+5+30
+set geometry(state) normal
+set geometry(topwidth) 1952
 set geometry(topheight) 581
-set geometry(pwsash0) "1634 1"
-set geometry(pwsash1) "1654 1"
-set geometry(botwidth) 1664
-set geometry(botheight) 411
+set geometry(pwsash0) "548 1"
+set geometry(pwsash1) "1095 1"
+set geometry(botwidth) 620
+set geometry(botheight) 543
 set permviews {}
