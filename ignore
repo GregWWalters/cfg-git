@@ -1,8 +1,14 @@
 # Config Files
+.env
 .envrc
+
+# Unshared Notes
+*.internal.*
+*.unshared.*
 
 # Temporary and Test files
 *.tmp
+*.bkp
 *.orig
 *.test
 *.wip
@@ -22,6 +28,7 @@ Thumbs.db
 # IDE and Editor files
 .idea/
 *.sw[op]
+.fleet
 tags
 
 # Node.JS
@@ -38,3 +45,5 @@ test/*.log
 *.exe
 *.exe~
 *.so
+
+**/.claude/settings.local.json

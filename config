@@ -25,7 +25,9 @@
 	co       = checkout
 	mt       = mergetool
 	wt       = worktree
+	wtree    = worktree
 	dft      = difftool
+	tree     = log --all --decorate --oneline --graph
 	staged   = diff --staged
 	conflict = merge --no-commit --no-ff
 	fetch    = fetch --tags
@@ -77,11 +79,14 @@
 	interHunkContext=8
 
 [difftool "vim"]
-	path = /usr/local/bin/vimdiff
+	; path = /usr/local/bin/vimdiff
+	path = /opt/homebrew/bin/vimdiff
 [difftool "gvim"]
-	path = /usr/local/bin/gvimdiff
+	; path = /usr/local/bin/gvimdiff
+	path = /opt/homebrew/bin/gvimdiff
 [difftool "kdiff3"]
-	path = /usr/local/bin/kdiff3
+	; path = /usr/local/bin/kdiff3
+	path = /opt/homebrew/bin/kdiff3
 [difftool "difftastic"]
 	cmd = difft \
 		--skip-unchanged \
@@ -129,11 +134,14 @@
 [mergetool]
 	prompt = false
 [mergetool "vim"]
-	path = /usr/local/bin/vimdiff
+	; path = /usr/local/bin/vimdiff
+	path = /opt/homebrew/bin/vimdiff
 [mergetool "gvim"]
-	path = /usr/local/bin/gvimdiff
+	; path = /usr/local/bin/gvimdiff
+	path = /opt/homebrew/bin/gvimdiff
 [mergetool "kdiff3"]
-	path = /usr/local/bin/kdiff3
+	; path = /usr/local/bin/kdiff3
+	path = /opt/homebrew/bin/kdiff3
 	trustExitCode = true
 
 [rebase]
@@ -180,9 +188,9 @@
 	path = ~/.config/git/ParkHub/gitconfig
 [includeIf "hasconfig:remote.*.url:git@github.com:parkhub/**"]
 	path = ~/.config/git/ParkHub/gitconfig
-[includeIf "gitdir/i:**/PH/**"]
-	path = ~/.config/.config/git/ParkHub/gitconfig
-[includeIf "gitdir/i:**/ParkHub/**"]
-	path = ~/.config/.config/.config/git/ParkHub/gitconfig
+[includeIf "gitdir/i:**/Repos/PH/**"]
+	path = ~/.config/git/ParkHub/gitconfig
+[includeIf "gitdir/i:**/Repos/ParkHub/**"]
+	path = ~/.config/git/ParkHub/gitconfig
 
 # vim:ft=.gitconfig
