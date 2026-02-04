@@ -6,7 +6,6 @@
 [user]
 	name       = Greg Walters
 	email      = Greg@GregWWalters.dev
-	signingkey = 6C47F50D9732AB63DCADC45435F253719E478B38
 
 [fetch]
 	recurseSubmodules = on-demand
@@ -16,6 +15,7 @@
 	default = upstream
 [pull]
 	rebase = true
+	ff = true
 [pager]
 	diff     = true
 	; difftool = true
@@ -47,8 +47,6 @@
 	useBuiltin = false
 [branch]
 	autoSetupRebase = always
-[commit]
-	gpgsign = true
 [url "ssh://git@github.com"]
 	insteadOf = https://github.com
 [advice]
@@ -183,7 +181,13 @@
 	verbose = off
 	echo = off
 
-; Conditional Git Configs
+;; Conditional Git Configs
+
+[include]
+	; local GPG signing key
+	path = ./signing
+
+; If ParkHub repo
 [includeIf "hasconfig:remote.*.url:github.com/parkhub/**"]
 	path = ~/.config/git/ParkHub/gitconfig
 [includeIf "hasconfig:remote.*.url:git@github.com:parkhub/**"]
@@ -192,5 +196,13 @@
 	path = ~/.config/git/ParkHub/gitconfig
 [includeIf "gitdir/i:**/Repos/ParkHub/**"]
 	path = ~/.config/git/ParkHub/gitconfig
+
+; If LeftWork repo
+[includeIf "hasconfig:remote.*.url:github.com/leftwork/**"]
+	path = leftwork/gitconfig
+[includeIf "hasconfig:remote.*.url:git@github.com:leftwork/**"]
+	path = leftwork/gitconfig
+[includeIf "gitdir/i:**/leftwork/**"]
+	path = leftwork/gitconfig
 
 # vim:ft=.gitconfig
