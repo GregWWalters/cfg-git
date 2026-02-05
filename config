@@ -76,15 +76,6 @@
 	statGraphWidth=78
 	interHunkContext=8
 
-[difftool "vim"]
-	; path = /usr/local/bin/vimdiff
-	path = /opt/homebrew/bin/vimdiff
-[difftool "gvim"]
-	; path = /usr/local/bin/gvimdiff
-	path = /opt/homebrew/bin/gvimdiff
-[difftool "kdiff3"]
-	; path = /usr/local/bin/kdiff3
-	path = /opt/homebrew/bin/kdiff3
 [difftool "difftastic"]
 	cmd = difft \
 		--skip-unchanged \
@@ -186,23 +177,7 @@
 [include]
 	; local GPG signing key
 	path = ./signing
-
-; If ParkHub repo
-[includeIf "hasconfig:remote.*.url:github.com/parkhub/**"]
-	path = ~/.config/git/ParkHub/gitconfig
-[includeIf "hasconfig:remote.*.url:git@github.com:parkhub/**"]
-	path = ~/.config/git/ParkHub/gitconfig
-[includeIf "gitdir/i:**/Repos/PH/**"]
-	path = ~/.config/git/ParkHub/gitconfig
-[includeIf "gitdir/i:**/Repos/ParkHub/**"]
-	path = ~/.config/git/ParkHub/gitconfig
-
-; If LeftWork repo
-[includeIf "hasconfig:remote.*.url:github.com/leftwork/**"]
-	path = leftwork/gitconfig
-[includeIf "hasconfig:remote.*.url:git@github.com:leftwork/**"]
-	path = leftwork/gitconfig
-[includeIf "gitdir/i:**/leftwork/**"]
-	path = leftwork/gitconfig
+	; other machine-specific rules
+	path = ./local
 
 # vim:ft=.gitconfig
