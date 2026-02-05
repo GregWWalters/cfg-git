@@ -28,9 +28,7 @@
 	co       = checkout
 	mt       = mergetool
 	wt       = worktree
-	wtree    = worktree
 	dft      = difftool
-	tree     = log --all --decorate --oneline --graph
 	staged   = diff --staged
 	conflict = merge --no-commit --no-ff
 	fetch    = fetch --tags
@@ -50,6 +48,8 @@
 	useBuiltin = false
 [branch]
 	autoSetupRebase = always
+[commit]
+	; gpgsign = true
 [url "ssh://git@github.com"]
 	insteadOf = https://github.com
 [advice]
@@ -65,12 +65,6 @@
 	diff        = auto
 	interactive = auto
 	status      = auto
-
-[format]
-	pretty = hdes
-
-[pretty]
-	hdes = "format:%C(auto)%h %ad %ae %s"
 
 [diff]
 	submodule = log
@@ -108,16 +102,6 @@
 		--display=side-by-side-show-both \
 		"$LOCAL" "$REMOTE"
 
-[log]
-	abbrevCommit = true
-	follow = true
-	date = iso
-	decorate = auto
-	mailmap = true
-
-[mailmap]
-	file = ~/.config/git/mailmap
-
 [merge]
 	tool = kdiff3
 	conflictstyle = diff3
@@ -125,15 +109,7 @@
 	renamelimit = 14690
 [mergetool]
 	prompt = false
-[mergetool "vim"]
-	; path = /usr/local/bin/vimdiff
-	path = /opt/homebrew/bin/vimdiff
-[mergetool "gvim"]
-	; path = /usr/local/bin/gvimdiff
-	path = /opt/homebrew/bin/gvimdiff
 [mergetool "kdiff3"]
-	; path = /usr/local/bin/kdiff3
-	path = /opt/homebrew/bin/kdiff3
 	trustExitCode = true
 
 [rebase]

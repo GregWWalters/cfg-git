@@ -1,0 +1,8 @@
+# Default GPG signing key to use for THIS MACHINE ONLY.
+# Do not commit this file.
+[user]
+	; signingkey = 02579EBBB5C8A85085ACDF32677E171B7830DF4E
+[commit]
+	; gpgsign = true
+
+# vim:ft=.gitconfig
