@@ -143,6 +143,11 @@
 [delta "side-by-side"]
 	side-by-side = true
 
+[http]
+	lowSpeedLimit = 1000
+	lowSpeedTime = 60
+	postBuffer = 524288000
+
 ; Custom Command Opts
 [funcs]
 	verbose = off
